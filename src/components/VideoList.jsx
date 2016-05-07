@@ -6,9 +6,9 @@ var VideoList = (props) => (
 
 var populateVideoList = (videos) => {
   return videos.map(function(video) {
-    return <VideoListEntry key={video.id.videoId} video={video} />
+    return (<VideoListEntry key={video.id.videoId} video={video} />);
   });
-}
+};
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
