@@ -1,26 +1,31 @@
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.debouncedSearch = _.debounce(function (event) {
-      this.newSearch(event);
-    }.bind(this), 500, { 'leading': true, 'trailing': true});
+    this.debouncedSearch = _.debounce(this.newSearch.bind(this), 500);
 
     this.state = {
       currentVideo: exampleVideoData[0],
-      videoList: []
+      videoList: [],
+      searchVal: ''
     };
   }
 
-  newSearch (query) {
+  newSearch () {
     //update options.query
-    window.options.query = query;
-     // event.target.value;
+    // console.log('in newSearch: ', event);
+    window.options.query = this.state.searchVal;
+    console.log(window.options.query);
 
     // make GET request
     this.props.searchYouTube(window.options, items => {
       this.setState({ videoList: items });
     });
 
+  }
+
+  updateSearchVal (event) {
+    this.state.searchVal = event.target.value;
+    this.debouncedSearch();
   }
 
   onThumbClick (video) {
@@ -45,7 +50,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Nav fnOnChange={this.debouncedSearch.bind(this)}/>
+        <Nav updateSearchVal={this.updateSearchVal.bind(this)}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo}/>
         </div>

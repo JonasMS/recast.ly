@@ -1,7 +1,7 @@
 var Nav = (props) => (
   <nav className="navbar">
     <div className="col-md-6 col-md-offset-3">
-      <Search fnOnChange={props.fnOnChange}/>
+      <Search updateSearchVal={props.updateSearchVal}/>
     </div>
   </nav>
 );
