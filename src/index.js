@@ -4,11 +4,12 @@
 //   document.getElementById('app')
 // );
 
-window.searchYouTube(window.options, data => {
-  window.videoData = data.items;
+// window.searchYouTube(window.options, data => {
+//   window.videoData = data.items;
 
-  ReactDOM.render(
-  <App/>,
+// });
+
+ReactDOM.render(
+  <App searchYouTube={searchYouTube}/>,
   document.getElementById('app')
-  );
-});
+);

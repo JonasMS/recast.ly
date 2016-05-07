@@ -3,11 +3,20 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      currentVideo: exampleVideoData[0]
+      currentVideo: exampleVideoData[0],
+      videoList: []
     };
   }
 
-  onThumbClick(video) {
+  componentDidMount () {
+    this.serverRequest = this.props.searchYouTube(window.options, result => {
+      this.setState({
+        videoList: result.items
+      });
+    });
+  }
+
+  onThumbClick (video) {
     this.setState({
       currentVideo: video
     });
@@ -21,7 +30,7 @@ class App extends React.Component {
           <VideoPlayer video={this.state.currentVideo}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos={window.videoData} event={this.onThumbClick.bind(this)}/>
+          <VideoList videos={this.state.videoList} event={this.onThumbClick.bind(this)}/>
         </div>
       </div>
     );

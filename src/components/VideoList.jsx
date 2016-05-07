@@ -5,9 +5,11 @@ var VideoList = (props) => (
 );
 
 var populateVideoList = (videos, event) => {
-  return videos.map(function(video) {
-    return (<VideoListEntry event={event} key={video.id.videoId} video={video} />);
-  });
+  if ( videos !== undefined && videos.length ) {
+    return videos.map(function(video) {
+      return (<VideoListEntry event={event} key={video.id.videoId} video={video} />);
+    });
+  }
 };
 
 // PropTypes tell other developers what `props` a component expects
