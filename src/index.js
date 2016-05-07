@@ -4,7 +4,7 @@
 //   document.getElementById('app')
 // );
 
-window.searchYouTube(options, data => {
+window.searchYouTube(window.options, data => {
   window.videoData = data.items;
 
   ReactDOM.render(
