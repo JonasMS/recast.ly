@@ -21,7 +21,7 @@ class App extends React.Component {
           <VideoPlayer video={this.state.currentVideo}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos={exampleVideoData} event={this.onThumbClick.bind(this)}/>
+          <VideoList videos={window.videoData} event={this.onThumbClick.bind(this)}/>
         </div>
       </div>
     );
