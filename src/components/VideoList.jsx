@@ -1,12 +1,12 @@
 var VideoList = (props) => (
   <div className="video-list media">
-    {populateVideoList(props.videos)}
+    {populateVideoList(props.videos, props.event)}
   </div>
 );
 
-var populateVideoList = (videos) => {
+var populateVideoList = (videos, event) => {
   return videos.map(function(video) {
-    return (<VideoListEntry key={video.id.videoId} video={video} />);
+    return (<VideoListEntry event={event} key={video.id.videoId} video={video} />);
   });
 };
 
