@@ -1,6 +1,6 @@
 window.options = {
   type: 'video',
-  max: 5,
+  max: 6,
   query: '',
   key: 'AIzaSyDqx7cgDThe98-KcOiIs5GlEWgHh0jXBn8'
 };
