@@ -6,7 +6,7 @@ var VideoList = (props) => (
 
 var populateVideoList = (videos, event) => {
   if ( videos !== undefined && videos.length ) {
-    return videos.map(function(video) {
+    return videos.map( video => {
       return (<VideoListEntry event={event} key={video.id.videoId} video={video} />);
     });
   }

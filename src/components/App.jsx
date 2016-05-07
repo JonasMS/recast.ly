@@ -12,7 +12,6 @@ class App extends React.Component {
 
   newSearch () {
     //update options.query
-    // console.log('in newSearch: ', event);
     window.options.query = this.state.searchVal;
     console.log(window.options.query);
 
@@ -33,10 +32,6 @@ class App extends React.Component {
       currentVideo: video
     });
   }
-
-  // componentWillMount () {
-  //   this.
-  // }
 
   componentDidMount () {
     this.props.searchYouTube(window.options, items => {
