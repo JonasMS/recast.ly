@@ -9,7 +9,7 @@ var searchYouTube = (options, success) => {
 
   $.get('https://www.googleapis.com/youtube/v3/search',
     'part=snippet&type=' + options.type + '&maxResults=' + options.max + '&q=' + options.query + '&key=' + options.key,
-     success);
+     function(result) { success(result.items); });
 };
 
 window.searchYouTube = searchYouTube;

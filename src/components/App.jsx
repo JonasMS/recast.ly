@@ -9,9 +9,9 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    this.serverRequest = this.props.searchYouTube(window.options, result => {
+    this.serverRequest = this.props.searchYouTube(window.options, items => {
       this.setState({
-        videoList: result.items
+        videoList: items
       });
     });
   }
